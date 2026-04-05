@@ -6,9 +6,8 @@ A clean, interactive finance dashboard built with plain HTML, CSS, and JavaScrip
 
 ## Live Demo
 
-[View on GitHub Pages](https://YOUR_USERNAME.github.io/finance-dashboard/)
+[View on GitHub Pages](https://krishnaprasad-07.github.io/finance-frontend/)
 
-> Replace the link above with your actual GitHub Pages URL after deployment.
 
 ---
 
