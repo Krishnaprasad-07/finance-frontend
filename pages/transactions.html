@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Transactions — Fintrack</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+
+<div class="sidebar-overlay"></div>
+
+<div class="shell">
+
+  <aside class="sidebar" id="sidebar-mount"></aside>
+
+  <div class="main">
+    <header class="topbar" id="topbar-mount"></header>
+
+    <div class="content">
+
+      <!-- Toolbar -->
+      <div class="tx-toolbar">
+        <input type="text" id="txSearch" class="tx-search" placeholder="Search transactions…" />
+        <select id="txType" class="tx-filter">
+          <option value="all">All types</option>
+          <option value="income">Income</option>
+          <option value="expense">Expense</option>
+        </select>
+        <select id="txCategory" class="tx-filter">
+          <option value="all">All categories</option>
+          <option>Food</option><option>Transport</option><option>Housing</option>
+          <option>Entertainment</option><option>Health</option><option>Shopping</option>
+          <option>Salary</option><option>Freelance</option><option>Investment</option><option>Other</option>
+        </select>
+        <select id="txSort" class="tx-sort">
+          <option value="date-desc">Date ↓</option>
+          <option value="date-asc">Date ↑</option>
+          <option value="amount-desc">Amount ↓</option>
+          <option value="amount-asc">Amount ↑</option>
+        </select>
+        <button id="addTxBtn" class="add-btn">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+            <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+          </svg>
+          Add Transaction
+        </button>
+      </div>
+
+      <!-- Table -->
+      <div class="tx-table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th data-sort="date">Date</th>
+              <th data-sort="desc">Description</th>
+              <th data-sort="category">Category</th>
+              <th data-sort="type">Type</th>
+              <th data-sort="amount">Amount</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="txBody"></tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Add Transaction Modal -->
+<div class="modal-overlay" id="txModal">
+  <div class="modal">
+    <div class="modal-title">Add Transaction</div>
+    <form id="txForm" onsubmit="return false">
+      <div class="form-row">
+        <label class="form-label" for="f-date">Date</label>
+        <input type="date" id="f-date" class="form-input" value="2026-03-01" />
+      </div>
+      <div class="form-row">
+        <label class="form-label" for="f-desc">Description</label>
+        <input type="text" id="f-desc" class="form-input" placeholder="e.g. Grocery Store" />
+      </div>
+      <div class="form-row">
+        <label class="form-label" for="f-category">Category</label>
+        <select id="f-category" class="form-select">
+          <option value="">Select category</option>
+          <option>Food</option><option>Transport</option><option>Housing</option>
+          <option>Entertainment</option><option>Health</option><option>Shopping</option>
+          <option>Salary</option><option>Freelance</option><option>Investment</option><option>Other</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <label class="form-label" for="f-type">Type</label>
+        <select id="f-type" class="form-select">
+          <option value="">Select type</option>
+          <option value="income">Income</option>
+          <option value="expense">Expense</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <label class="form-label" for="f-amount">Amount (₹)</label>
+        <input type="number" id="f-amount" class="form-input" placeholder="0" min="1" step="1" />
+      </div>
+    </form>
+    <div class="modal-actions">
+      <button class="btn-cancel" id="cancelBtn">Cancel</button>
+      <button class="btn-save"   id="saveBtn">Save Transaction</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="../js/data.js"></script>
+<script src="../js/layout.js"></script>
+<script src="../js/transactions.js"></script>
+</body>
+</html>

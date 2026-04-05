@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Insights — Fintrack</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+
+<div class="sidebar-overlay"></div>
+
+<div class="shell">
+
+  <aside class="sidebar" id="sidebar-mount"></aside>
+
+  <div class="main">
+    <header class="topbar" id="topbar-mount"></header>
+
+    <div class="content">
+
+      <div class="section-title">Key Insights</div>
+
+      <div class="insights-grid">
+
+        <!-- Highest spending category -->
+        <div class="insight-card">
+          <span class="insight-tag amber">Top Category</span>
+          <div class="insight-heading">Highest Spending</div>
+          <div class="insight-number" id="ins-top-cat">—</div>
+          <div class="insight-body">
+            <strong id="ins-top-amt"></strong><br/>
+            <span id="ins-top-pct" style="color:var(--text-3)"></span>
+          </div>
+        </div>
+
+        <!-- Month over month -->
+        <div class="insight-card">
+          <span class="insight-tag blue">Comparison</span>
+          <div class="insight-heading">Month over Month</div>
+          <div class="monthly-bars" id="ins-monthly-bars"></div>
+        </div>
+
+        <!-- Savings rate -->
+        <div class="insight-card">
+          <span class="insight-tag green">Savings</span>
+          <div class="insight-heading">Savings Rate</div>
+          <div class="insight-number" id="ins-savings-rate">—</div>
+          <div class="insight-body" id="ins-savings-msg"></div>
+        </div>
+
+      </div>
+
+      <div class="section-title">Monthly Comparison Chart</div>
+
+      <div class="chart-card" style="margin-bottom:28px">
+        <div class="chart-header">
+          <div>
+            <div class="chart-title">This Month vs Last Month</div>
+            <div class="chart-sub">Income, expenses, and net savings</div>
+          </div>
+          <div style="display:flex;gap:12px;font-size:12px;color:var(--text-3)">
+            <span style="display:flex;align-items:center;gap:5px">
+              <span style="width:9px;height:9px;border-radius:2px;background:#d1ede3;border:1px solid #1d8f6a;display:inline-block"></span>
+              This month
+            </span>
+            <span style="display:flex;align-items:center;gap:5px">
+              <span style="width:9px;height:9px;border-radius:2px;background:rgba(29,143,106,0.15);border:1px solid #1d8f6a;display:inline-block"></span>
+              Last month
+            </span>
+          </div>
+        </div>
+        <div class="chart-canvas-wrap">
+          <canvas id="monthlyChart"></canvas>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script src="../js/data.js"></script>
+<script src="../js/layout.js"></script>
+<script src="../js/insights.js"></script>
+</body>
+</html>
